@@ -104,6 +104,6 @@ public class MainActivity extends AppCompatActivity implements RepoViewInterface
 
     @Override
     public void onClick(int position, String name) {
-        Toast.makeText(getApplicationContext(), "You clicked on " + name, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "You just clicked on " + name, Toast.LENGTH_SHORT).show();
     }
 }
