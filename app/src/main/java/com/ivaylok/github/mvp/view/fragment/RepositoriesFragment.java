@@ -1,4 +1,4 @@
-package com.ivaylok.github.utils;
+package com.ivaylok.github.mvp.view.fragment;
 
 
 import android.app.ProgressDialog;
@@ -16,18 +16,17 @@ import android.widget.Toast;
 
 import com.ivaylok.github.R;
 import com.ivaylok.github.application.RepoApplication;
-import com.ivaylok.github.base.RepoPresenter;
-import com.ivaylok.github.model.RepoAdapter;
-import com.ivaylok.github.model.RepoResponse;
+import com.ivaylok.github.mvp.presenter.RepoPresenter;
+import com.ivaylok.github.mvp.model.RepoAdapter;
+import com.ivaylok.github.mvp.model.RepoResponse;
 import com.ivaylok.github.service.RepoService;
 import com.ivaylok.github.service.RepoViewInterface;
-import com.ivaylok.github.ui.RepoActivity;
+import com.ivaylok.github.mvp.view.RepoActivity;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 import rx.Observable;
 

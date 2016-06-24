@@ -1,4 +1,4 @@
-package com.ivaylok.github.utils;
+package com.ivaylok.github.mvp.view.fragment;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import com.ivaylok.github.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StarsFragment extends Fragment {
+public class FollowingsFragment extends Fragment {
 
 
-    public StarsFragment() {
+    public FollowingsFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class StarsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_stars, container, false);
+        return inflater.inflate(R.layout.fragment_followings, container, false);
     }
 
 }

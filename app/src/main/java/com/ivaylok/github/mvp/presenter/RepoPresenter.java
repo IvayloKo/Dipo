@@ -1,6 +1,6 @@
-package com.ivaylok.github.base;
+package com.ivaylok.github.mvp.presenter;
 
-import com.ivaylok.github.model.RepoResponse;
+import com.ivaylok.github.mvp.model.RepoResponse;
 import com.ivaylok.github.service.RepoViewInterface;
 
 import java.util.List;

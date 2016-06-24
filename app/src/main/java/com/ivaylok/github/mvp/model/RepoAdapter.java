@@ -1,4 +1,4 @@
-package com.ivaylok.github.model;
+package com.ivaylok.github.mvp.model;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

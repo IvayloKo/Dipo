@@ -1,4 +1,4 @@
-package com.ivaylok.github.ui;
+package com.ivaylok.github.mvp.view;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

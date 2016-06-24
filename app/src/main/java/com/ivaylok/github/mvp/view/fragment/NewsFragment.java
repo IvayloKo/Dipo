@@ -1,4 +1,4 @@
-package com.ivaylok.github.utils;
+package com.ivaylok.github.mvp.view.fragment;
 
 
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.ivaylok.github.model;
+package com.ivaylok.github.mvp.model;
 
 import com.google.gson.annotations.Expose;
 

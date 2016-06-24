@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.LoginActivity">
+        <activity android:name=".mvp.view.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,17 +24,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.RepoActivity"
+            android:name=".mvp.view.RepoActivity"
             android:label="@string/title_activity_repo"
-            android:parentActivityName=".ui.GithubActivity">
+            android:parentActivityName=".mvp.view.GithubActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ivaylok.github.ui.GithubActivity" />
+                android:value=".mvp.view.GithubActivity" />
         </activity>
         <activity
-            android:name=".ui.GithubActivity"
+            android:name=".mvp.view.GithubActivity"
             android:label="@string/title_activity_github" />
-        <activity android:name=".ui.OverviewActivity"/>
+        <activity android:name=".mvp.view.OverviewActivity"/>
     </application>
 
 </manifest>

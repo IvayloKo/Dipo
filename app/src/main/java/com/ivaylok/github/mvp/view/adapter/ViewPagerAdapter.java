@@ -1,12 +1,18 @@
-package com.ivaylok.github.utils;
+package com.ivaylok.github.mvp.view.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-public class PagerAdapter extends FragmentStatePagerAdapter {
+import com.ivaylok.github.mvp.view.fragment.FollowersFragment;
+import com.ivaylok.github.mvp.view.fragment.FollowingsFragment;
+import com.ivaylok.github.mvp.view.fragment.NewsFragment;
+import com.ivaylok.github.mvp.view.fragment.RepositoriesFragment;
+import com.ivaylok.github.mvp.view.fragment.StarsFragment;
 
-    public PagerAdapter(FragmentManager fm) {
+public class ViewPagerAdapter extends FragmentStatePagerAdapter {
+
+    public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

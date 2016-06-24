@@ -1,4 +1,4 @@
-package com.ivaylok.github.ui;
+package com.ivaylok.github.mvp.view;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -10,10 +10,9 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.ivaylok.github.R;
-import com.ivaylok.github.application.RepoApplication;
-import com.ivaylok.github.base.RepoPresenter;
-import com.ivaylok.github.model.RepoAdapter;
-import com.ivaylok.github.model.RepoResponse;
+import com.ivaylok.github.mvp.presenter.RepoPresenter;
+import com.ivaylok.github.mvp.model.RepoAdapter;
+import com.ivaylok.github.mvp.model.RepoResponse;
 import com.ivaylok.github.service.RepoService;
 import com.ivaylok.github.service.RepoViewInterface;
 

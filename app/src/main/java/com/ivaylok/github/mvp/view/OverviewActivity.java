@@ -1,4 +1,4 @@
-package com.ivaylok.github.ui;
+package com.ivaylok.github.mvp.view;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
@@ -8,13 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.ivaylok.github.R;
-import com.ivaylok.github.model.RepoAdapter;
-import com.ivaylok.github.model.RepoResponse;
-import com.ivaylok.github.service.RepoViewInterface;
-
-import java.util.List;
-
-import rx.Observable;
+import com.ivaylok.github.mvp.view.adapter.ViewPagerAdapter;
 
 public class OverviewActivity extends AppCompatActivity {
 
@@ -38,9 +32,9 @@ public class OverviewActivity extends AppCompatActivity {
         // will pass object of Fragment manager to adapter
         FragmentManager manager = getSupportFragmentManager();
 
-        //Object of PagerAdapter passing fragment manager object as a parameter
-        //of constructor of PagerAdapter
-        PagerAdapter adapter = new com.ivaylok.github.utils.PagerAdapter(manager);
+        //Object of ViewPagerAdapter passing fragment manager object as a parameter
+        //of constructor of ViewPagerAdapter
+        PagerAdapter adapter = new ViewPagerAdapter(manager);
 
         //set Adapter to view pager
         pager.setAdapter(adapter);

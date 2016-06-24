@@ -1,6 +1,6 @@
 package com.ivaylok.github.service;
 
-import com.ivaylok.github.model.RepoResponse;
+import com.ivaylok.github.mvp.model.RepoResponse;
 
 import java.util.List;
 

@@ -7,7 +7,7 @@ import com.ivaylok.github.dependencies.DaggerApiComponent;
 import com.ivaylok.github.dependencies.DaggerNetworkComponent;
 import com.ivaylok.github.dependencies.NetworkComponent;
 import com.ivaylok.github.dependencies.NetworkModule;
-import com.ivaylok.github.model.Constant;
+import com.ivaylok.github.mvp.model.Constant;
 
 public class RepoApplication extends Application {
 

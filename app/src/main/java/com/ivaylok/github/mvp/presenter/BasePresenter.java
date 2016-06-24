@@ -1,4 +1,4 @@
-package com.ivaylok.github.base;
+package com.ivaylok.github.mvp.presenter;
 
 import rx.Observable;
 import rx.Observer;
