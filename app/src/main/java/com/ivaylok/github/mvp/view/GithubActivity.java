@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.ivaylok.github.R;
 import com.ivaylok.github.mvp.presenter.RepoPresenter;
-import com.ivaylok.github.mvp.model.RepoAdapter;
+import com.ivaylok.github.mvp.view.adapter.RepositoriesAdapter;
 import com.ivaylok.github.mvp.model.RepoResponse;
 import com.ivaylok.github.service.RepoService;
 import com.ivaylok.github.service.RepoViewInterface;
@@ -25,7 +25,7 @@ import javax.inject.Inject;
 
 import rx.Observable;
 
-public class GithubActivity extends AppCompatActivity implements RepoViewInterface, RepoAdapter.RepoClickListener {
+public class GithubActivity extends AppCompatActivity implements RepoViewInterface, RepositoriesAdapter.RepoClickListener {
 
     public static final String EXTRA_MESSAGE = "com.ivaylok.github.MESSAGE";
 
@@ -36,7 +36,7 @@ public class GithubActivity extends AppCompatActivity implements RepoViewInterfa
 
     @Bind(R.id.recyclerview)
     RecyclerView mRecyclerView;
-    private RepoAdapter mAdapter;
+    private RepositoriesAdapter mAdapter;
 
     private ProgressDialog mDialog;
 
@@ -66,7 +66,7 @@ public class GithubActivity extends AppCompatActivity implements RepoViewInterfa
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mAdapter = new RepoAdapter(this, getLayoutInflater());
+        mAdapter = new RepositoriesAdapter(this, getLayoutInflater());
         mRecyclerView.setAdapter(mAdapter);
     }
 

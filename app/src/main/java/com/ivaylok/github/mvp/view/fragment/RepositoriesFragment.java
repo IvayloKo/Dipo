@@ -17,7 +17,7 @@ import android.widget.Toast;
 import com.ivaylok.github.R;
 import com.ivaylok.github.application.RepoApplication;
 import com.ivaylok.github.mvp.presenter.RepoPresenter;
-import com.ivaylok.github.mvp.model.RepoAdapter;
+import com.ivaylok.github.mvp.view.adapter.RepositoriesAdapter;
 import com.ivaylok.github.mvp.model.RepoResponse;
 import com.ivaylok.github.service.RepoService;
 import com.ivaylok.github.service.RepoViewInterface;
@@ -33,7 +33,7 @@ import rx.Observable;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RepositoriesFragment extends Fragment implements RepoViewInterface, RepoAdapter.RepoClickListener {
+public class RepositoriesFragment extends Fragment implements RepoViewInterface, RepositoriesAdapter.RepoClickListener {
 
     @Inject
     RepoService mService;
@@ -41,7 +41,7 @@ public class RepositoriesFragment extends Fragment implements RepoViewInterface,
     public static final String EXTRA_MESSAGE = "com.ivaylok.github.MESSAGE";
     private ProgressDialog mDialog;
     private RepoPresenter mPresenter;
-    private RepoAdapter mAdapter;
+    private RepositoriesAdapter mAdapter;
 
     RecyclerView mRecyclerView;
 
@@ -78,7 +78,7 @@ public class RepositoriesFragment extends Fragment implements RepoViewInterface,
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mAdapter = new RepoAdapter(RepositoriesFragment.this, inflater);
+        mAdapter = new RepositoriesAdapter(RepositoriesFragment.this, inflater);
         mRecyclerView.setAdapter(mAdapter);
 
 //        mLayoutManager = new LinearLayoutManager(getActivity());

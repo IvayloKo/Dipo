@@ -1,4 +1,4 @@
-package com.ivaylok.github.mvp.model;
+package com.ivaylok.github.mvp.view.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,17 +7,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ivaylok.github.R;
+import com.ivaylok.github.mvp.model.RepoResponse;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.Holder> {
+public class RepositoriesAdapter extends RecyclerView.Adapter<RepositoriesAdapter.Holder> {
 
     private final LayoutInflater mInflater;
     private List<RepoResponse> mRepoList;
     private RepoClickListener mListener;
 
-    public RepoAdapter(RepoClickListener listener, LayoutInflater inflater) {
+    public RepositoriesAdapter(RepoClickListener listener, LayoutInflater inflater) {
         mListener = listener;
         mInflater = inflater;
         mRepoList = new ArrayList<>();
