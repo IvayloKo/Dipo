@@ -30,7 +30,7 @@ public class FollowersPresenter extends BasePresenter implements Observer<List<F
         mViewInterface.onFollowers(followersResponses);
     }
 
-    public void fetchRepose() {
+    public void fetchResponse() {
         unSubscribeAll();
         subscribe(mViewInterface.getFollowers(), FollowersPresenter.this);
     }

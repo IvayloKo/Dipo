@@ -9,7 +9,7 @@ import com.ivaylok.github.dependencies.NetworkComponent;
 import com.ivaylok.github.dependencies.NetworkModule;
 import com.ivaylok.github.mvp.model.Constant;
 
-public class githubApplication extends Application {
+public class GithubApplication extends Application {
 
     private ApiComponent mApiComponent;
 

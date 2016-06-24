@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.ivaylok.github.R;
-import com.ivaylok.github.application.githubApplication;
+import com.ivaylok.github.application.GithubApplication;
 import com.ivaylok.github.mvp.model.FollowersResponse;
 import com.ivaylok.github.mvp.presenter.FollowersPresenter;
 import com.ivaylok.github.mvp.view.adapter.FollowersAdapter;
@@ -59,7 +59,7 @@ public class FollowersFragment extends Fragment implements FollowersViewInterfac
     }
 
     private void resolveDependency() {
-        ((githubApplication) getActivity().getApplication())
+        ((GithubApplication) getActivity().getApplication())
                 .getmApiComponent()
                 .inject(FollowersFragment.this);
     }
@@ -68,7 +68,7 @@ public class FollowersFragment extends Fragment implements FollowersViewInterfac
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.recyclerview2, container, false);
+        View rootView = inflater.inflate(R.layout.recycler_layout, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
 
         mRecyclerView.setRecycledViewPool(new RecyclerView.RecycledViewPool());
@@ -78,7 +78,6 @@ public class FollowersFragment extends Fragment implements FollowersViewInterfac
         mAdapter = new FollowersAdapter(FollowersFragment.this, inflater);
         mRecyclerView.setAdapter(mAdapter);
 
-        // Inflate the layout for this fragment
         return rootView;
     }
 
@@ -96,7 +95,7 @@ public class FollowersFragment extends Fragment implements FollowersViewInterfac
     public void onResume() {
         super.onResume();
         mPresenter.onResume();
-        mPresenter.fetchRepose();
+        mPresenter.fetchResponse();
         mDialog = new ProgressDialog(getActivity());
         mDialog.setIndeterminate(true);
         mDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -119,6 +118,6 @@ public class FollowersFragment extends Fragment implements FollowersViewInterfac
 
     @Override
     public Observable<List<FollowersResponse>> getFollowers() {
-        return mService.getFollowers();
+        return mService.getPublicFollowers();
     }
 }

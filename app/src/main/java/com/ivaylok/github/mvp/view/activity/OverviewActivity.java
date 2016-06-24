@@ -1,4 +1,4 @@
-package com.ivaylok.github.mvp.view;
+package com.ivaylok.github.mvp.view.activity;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;

@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.ivaylok.github.R;
 import com.ivaylok.github.mvp.model.RepoResponse;
+import com.ivaylok.github.utils.GithubClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +17,9 @@ public class RepositoriesAdapter extends RecyclerView.Adapter<RepositoriesAdapte
 
     private final LayoutInflater mInflater;
     private List<RepoResponse> mRepoList;
-    private RepoClickListener mListener;
+    private GithubClickListener mListener;
 
-    public RepositoriesAdapter(RepoClickListener listener, LayoutInflater inflater) {
+    public RepositoriesAdapter(GithubClickListener listener, LayoutInflater inflater) {
         mListener = listener;
         mInflater = inflater;
         mRepoList = new ArrayList<>();
@@ -67,8 +68,8 @@ public class RepositoriesAdapter extends RecyclerView.Adapter<RepositoriesAdapte
         }
     }
 
-    public interface RepoClickListener {
-
-        void onClick(int position, String name);
-    }
+//    public interface RepoClickListener {
+//
+//        void onClick(int position, String name);
+//    }
 }

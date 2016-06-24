@@ -30,7 +30,7 @@ public class RepoPresenter extends BasePresenter implements Observer<List<RepoRe
         mViewInterface.onRepos(repoResponses);
     }
 
-    public void fetchRepose() {
+    public void fetchResponse() {
         unSubscribeAll();
         subscribe(mViewInterface.getRepos(), RepoPresenter.this);
     }

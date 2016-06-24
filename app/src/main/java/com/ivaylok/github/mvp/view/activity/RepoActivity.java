@@ -1,4 +1,4 @@
-package com.ivaylok.github.mvp.view;
+package com.ivaylok.github.mvp.view.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

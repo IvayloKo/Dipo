@@ -9,22 +9,22 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.ivaylok.github.R;
-import com.ivaylok.github.mvp.model.FollowersResponse;
+import com.ivaylok.github.mvp.model.FollowingsResponse;
 import com.ivaylok.github.utils.GithubClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.Holder> {
+public class FollowingsAdapter extends RecyclerView.Adapter<FollowingsAdapter.Holder>  {
 
     private final LayoutInflater mInflater;
-    private List<FollowersResponse> mFollowersList;
+    private List<FollowingsResponse> mFollowingsList;
     private GithubClickListener mListener;
 
-    public FollowersAdapter(GithubClickListener listener, LayoutInflater inflater) {
-        mListener = listener;
-        mInflater = inflater;
-        mFollowersList = new ArrayList<>();
+    public FollowingsAdapter(GithubClickListener mListener, LayoutInflater mInflater) {
+        this.mListener = mListener;
+        this.mInflater = mInflater;
+        mFollowingsList = new ArrayList<>();
     }
 
     @Override
@@ -34,23 +34,22 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.Hold
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
-        FollowersResponse currFollower = mFollowersList.get(position);
+        FollowingsResponse currFollowing = mFollowingsList.get(position);
 
-        holder.mLogin.setText(currFollower.getLogin());
-        Glide.with(holder.itemView.getContext()).load(currFollower.getAvatar_url()).into(holder.mAvatar);
+        holder.mLogin.setText(currFollowing.getLogin());
+        Glide.with(holder.itemView.getContext()).load(currFollowing.getAvatar_url()).into(holder.mAvatar);
+
     }
 
     @Override
-    public int getItemCount() {
-        return mFollowersList.size();
-    }
+    public int getItemCount() { return mFollowingsList.size(); }
 
-    public void addFollowers(List<FollowersResponse> followersResponses) {
-        mFollowersList.addAll(followersResponses);
+    public void addFollowings(List<FollowingsResponse> followingsResponses) {
+        mFollowingsList.addAll(followingsResponses);
         notifyDataSetChanged();
     }
 
-    public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView mLogin;
         private ImageView mAvatar;
@@ -64,8 +63,7 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.Hold
 
         @Override
         public void onClick(View view) {
-            mListener.onClick(getLayoutPosition(), mFollowersList.get(getAdapterPosition()).getLogin());
+            mListener.onClick(getLayoutPosition(), mFollowingsList.get(getAdapterPosition()).getLogin());
         }
     }
 }
-

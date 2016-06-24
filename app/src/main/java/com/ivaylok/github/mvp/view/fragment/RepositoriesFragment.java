@@ -14,13 +14,14 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.ivaylok.github.R;
-import com.ivaylok.github.application.githubApplication;
+import com.ivaylok.github.application.GithubApplication;
 import com.ivaylok.github.mvp.presenter.RepoPresenter;
 import com.ivaylok.github.mvp.view.adapter.RepositoriesAdapter;
 import com.ivaylok.github.mvp.model.RepoResponse;
 import com.ivaylok.github.service.GithubService;
 import com.ivaylok.github.service.RepoViewInterface;
-import com.ivaylok.github.mvp.view.RepoActivity;
+import com.ivaylok.github.mvp.view.activity.RepoActivity;
+import com.ivaylok.github.utils.GithubClickListener;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ import rx.Observable;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RepositoriesFragment extends Fragment implements RepoViewInterface, RepositoriesAdapter.RepoClickListener {
+public class RepositoriesFragment extends Fragment implements RepoViewInterface, GithubClickListener {
 
     @Inject
     GithubService mService;
@@ -61,7 +62,7 @@ public class RepositoriesFragment extends Fragment implements RepoViewInterface,
     }
 
     private void resolveDependency() {
-        ((githubApplication) getActivity().getApplication())
+        ((GithubApplication) getActivity().getApplication())
                 .getmApiComponent()
                 .inject(RepositoriesFragment.this);
     }
@@ -70,7 +71,7 @@ public class RepositoriesFragment extends Fragment implements RepoViewInterface,
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.activity_main, container, false);
+        View rootView = inflater.inflate(R.layout.recycler_layout, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
 
         mRecyclerView.setRecycledViewPool(new RecyclerView.RecycledViewPool());
@@ -100,7 +101,7 @@ public class RepositoriesFragment extends Fragment implements RepoViewInterface,
     public void onResume() {
         super.onResume();
         mPresenter.onResume();
-        mPresenter.fetchRepose();
+        mPresenter.fetchResponse();
         mDialog = new ProgressDialog(getActivity());
         mDialog.setIndeterminate(true);
         mDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -122,6 +123,6 @@ public class RepositoriesFragment extends Fragment implements RepoViewInterface,
 
     @Override
     public Observable<List<RepoResponse>> getRepos() {
-        return mService.getRepos();
+        return mService.getPublicRepos();
     }
 }
