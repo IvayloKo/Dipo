@@ -1,6 +1,5 @@
 package com.ivaylok.github.mvp.view.fragment;
 
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,11 +14,11 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.ivaylok.github.R;
-import com.ivaylok.github.application.RepoApplication;
+import com.ivaylok.github.application.githubApplication;
 import com.ivaylok.github.mvp.presenter.RepoPresenter;
 import com.ivaylok.github.mvp.view.adapter.RepositoriesAdapter;
 import com.ivaylok.github.mvp.model.RepoResponse;
-import com.ivaylok.github.service.RepoService;
+import com.ivaylok.github.service.GithubService;
 import com.ivaylok.github.service.RepoViewInterface;
 import com.ivaylok.github.mvp.view.RepoActivity;
 
@@ -36,7 +35,7 @@ import rx.Observable;
 public class RepositoriesFragment extends Fragment implements RepoViewInterface, RepositoriesAdapter.RepoClickListener {
 
     @Inject
-    RepoService mService;
+    GithubService mService;
 
     public static final String EXTRA_MESSAGE = "com.ivaylok.github.MESSAGE";
     private ProgressDialog mDialog;
@@ -62,7 +61,7 @@ public class RepositoriesFragment extends Fragment implements RepoViewInterface,
     }
 
     private void resolveDependency() {
-        ((RepoApplication) getActivity().getApplication())
+        ((githubApplication) getActivity().getApplication())
                 .getmApiComponent()
                 .inject(RepositoriesFragment.this);
     }

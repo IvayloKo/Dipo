@@ -1,6 +1,6 @@
 package com.ivaylok.github.dependencies;
 
-import com.ivaylok.github.service.RepoService;
+import com.ivaylok.github.service.GithubService;
 
 import dagger.Module;
 import dagger.Provides;
@@ -11,7 +11,7 @@ public class ApiModule {
 
     @Provides
     @CustomScope
-    RepoService provideRepoService(Retrofit retrofit) {
-        return retrofit.create(RepoService.class);
+    GithubService provideRepoService(Retrofit retrofit) {
+        return retrofit.create(GithubService.class);
     }
 }
