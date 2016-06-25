@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:elevation="4dp">
+    android:layout_height="72dp"
+    style="@style/TheNewStyle">
 
     <TextView
         android:id="@+id/textViewStarName"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_gravity="center_vertical"
-        />
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/imageStarIcon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:scaleType="fitXY"
-        android:layout_gravity="center_vertical"/>
+        android:src="@drawable/ic_star"
+        android:layout_alignTop="@+id/textViewStarCount"
+        android:layout_toStartOf="@+id/textViewStarCount" />
 
     <TextView
         android:id="@+id/textViewStarCount"
@@ -28,6 +30,7 @@
         android:layout_height="wrap_content"
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_gravity="center_vertical"/>
+        android:layout_alignTop="@+id/textViewStarName"
+        android:layout_alignParentEnd="true" />
 
-</LinearLayout>
+</RelativeLayout>

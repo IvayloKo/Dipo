@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--BASE-->
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!--BLUE GREY - LIME-->
+    <!--<color name="colorPrimary">#607D8B</color>-->
+    <!--<color name="colorPrimaryDark">#455A64</color>-->
+    <!--<color name="colorAccent">#CDDC39</color>-->
+
+    <!--BROWN - GREEN-->
+    <!--<color name="colorPrimary">#795548</color>-->
+    <!--<color name="colorPrimaryDark">#5D4037</color>-->
+    <!--<color name="colorAccent">#4CAF50</color>-->
+
+    <!--BROWN - TEAL-->
+    <!--<color name="colorPrimary">#795548</color>-->
+    <!--<color name="colorPrimaryDark">#5D4037</color>-->
+    <!--<color name="colorAccent">#009688</color>-->
+
+    <!--DEEP PURPLE  - TEAL-->
+    <!--<color name="colorPrimary">#673AB7</color>-->
+    <!--<color name="colorPrimaryDark">#512DA8</color>-->
+    <!--<color name="colorAccent">#009688</color>-->
+
+
+
 </resources>
