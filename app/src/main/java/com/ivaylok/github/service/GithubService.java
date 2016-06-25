@@ -4,6 +4,7 @@ package com.ivaylok.github.service;
 import com.ivaylok.github.mvp.model.FollowersResponse;
 import com.ivaylok.github.mvp.model.FollowingsResponse;
 import com.ivaylok.github.mvp.model.RepoResponse;
+import com.ivaylok.github.mvp.model.StarsResponse;
 
 import java.util.List;
 
@@ -30,6 +31,9 @@ public interface GithubService {
 
     @GET("/users/JakeWharton/repos")
     Observable<List<RepoResponse>> getPublicRepos();
+
+    @GET("/users/JakeWharton/starred")
+    Observable<List<StarsResponse>> getPublicStars();
 
     @GET("/users/JakeWharton/followers")
     Observable<List<FollowersResponse>> getPublicFollowers();

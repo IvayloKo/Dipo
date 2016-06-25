@@ -7,7 +7,7 @@ import com.ivaylok.github.dependencies.DaggerApiComponent;
 import com.ivaylok.github.dependencies.DaggerNetworkComponent;
 import com.ivaylok.github.dependencies.NetworkComponent;
 import com.ivaylok.github.dependencies.NetworkModule;
-import com.ivaylok.github.mvp.model.Constant;
+import com.ivaylok.github.utils.Constants;
 
 public class GithubApplication extends Application {
 
@@ -27,7 +27,7 @@ public class GithubApplication extends Application {
 
     private NetworkComponent getNetworkComponent() {
         return DaggerNetworkComponent.builder()
-                .networkModule(new NetworkModule(Constant.BASE_URL))
+                .networkModule(new NetworkModule(Constants.BASE_URL))
                 .build();
     }
 
