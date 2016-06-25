@@ -3,6 +3,7 @@ package com.ivaylok.github.service;
 
 import com.ivaylok.github.mvp.model.FollowersResponse;
 import com.ivaylok.github.mvp.model.FollowingsResponse;
+import com.ivaylok.github.mvp.model.NewsResponse;
 import com.ivaylok.github.mvp.model.RepoResponse;
 import com.ivaylok.github.mvp.model.StarsResponse;
 
@@ -28,6 +29,9 @@ public interface GithubService {
 
 
 //    Public -----------------
+
+    @GET("/users/JakeWharton/received_events")
+    Observable<List<NewsResponse>> getPublicNews();
 
     @GET("/users/JakeWharton/repos")
     Observable<List<RepoResponse>> getPublicRepos();
