@@ -1,5 +1,6 @@
 package com.ivaylok.github.dependencies;
 
+import com.ivaylok.github.mvp.view.activity.RepoActivity;
 import com.ivaylok.github.mvp.view.fragment.FollowersFragment;
 import com.ivaylok.github.mvp.view.fragment.FollowingsFragment;
 import com.ivaylok.github.mvp.view.fragment.NewsFragment;
@@ -17,4 +18,5 @@ public interface ApiComponent {
     void inject(FollowingsFragment fragment);
     void inject(StarsFragment fragment);
     void inject(NewsFragment fragment);
+    void inject(RepoActivity activity);
 }

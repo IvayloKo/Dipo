@@ -5,6 +5,7 @@ import com.ivaylok.github.mvp.model.FollowersResponse;
 import com.ivaylok.github.mvp.model.FollowingsResponse;
 import com.ivaylok.github.mvp.model.NewsResponse;
 import com.ivaylok.github.mvp.model.RepoResponse;
+import com.ivaylok.github.mvp.model.SingleRepoResponse;
 import com.ivaylok.github.mvp.model.StarsResponse;
 
 import java.util.List;
@@ -49,5 +50,9 @@ public interface GithubService {
     @Headers({"Accept: application/vnd.github.v3+json", "Authorization: token legit"})
     @GET("/users/JakeWharton/following")
     Observable<List<FollowingsResponse>> getPublicFollowings();
+
+    @Headers({"Accept: application/vnd.github.v3+json", "Authorization: token legit"})
+    @GET("/repos/JakeWharton/butterknife/contents")
+    Observable<List<SingleRepoResponse>> getSingleRepo();
 
 }

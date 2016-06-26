@@ -27,6 +27,7 @@ public class NewsPresenter extends BasePresenter implements Observer<List<NewsRe
 
     @Override
     public void onNext(List<NewsResponse> newsResponses) {
+
         mViewInterface.onNews(newsResponses);
     }
 
