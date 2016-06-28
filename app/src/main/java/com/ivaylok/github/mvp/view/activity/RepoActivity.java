@@ -8,8 +8,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ivaylok.github.R;
@@ -17,11 +15,10 @@ import com.ivaylok.github.application.GithubApplication;
 import com.ivaylok.github.mvp.model.SingleRepoResponse;
 import com.ivaylok.github.mvp.presenter.SingleRepoPresenter;
 import com.ivaylok.github.mvp.view.adapter.SingleRepoAdapter;
-import com.ivaylok.github.mvp.view.fragment.RepositoriesFragment;
 import com.ivaylok.github.service.GithubService;
-import com.ivaylok.github.service.RepoViewInterface;
 import com.ivaylok.github.service.SingleRepoInterface;
 import com.ivaylok.github.utils.GithubClickListener;
+import com.ivaylok.github.utils.RepositoryClickListener;
 
 import java.util.List;
 
@@ -29,19 +26,17 @@ import javax.inject.Inject;
 
 import rx.Observable;
 
-public class RepoActivity extends AppCompatActivity implements SingleRepoInterface, GithubClickListener {
+public class RepoActivity extends AppCompatActivity implements SingleRepoInterface, RepositoryClickListener {
 
     @Inject
     GithubService mService;
 
-    public static final String EXTRA_MESSAGE = "com.ivaylok.github.MESSAGE";
     private ProgressDialog mDialog;
     private SingleRepoPresenter mPresenter;
     private SingleRepoAdapter mAdapter;
 
     RecyclerView mRecyclerView;
-
-
+    public static String CODE_URL = "com.ivaylok.github";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +45,6 @@ public class RepoActivity extends AppCompatActivity implements SingleRepoInterfa
 
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-
-        Intent repoIntent = getIntent();
-        String mRepoName = repoIntent.getStringExtra(RepositoriesFragment.EXTRA_MESSAGE);
 
         resolveDependency();
         configView();
@@ -90,10 +82,10 @@ public class RepoActivity extends AppCompatActivity implements SingleRepoInterfa
         mDialog.show();
     }
 
-    @Override
-    public void onClick(int position, String name) {
-        Toast.makeText(getApplicationContext(), "You just clicked on " + name, Toast.LENGTH_SHORT).show();
-    }
+//    @Override
+//    public void onClick(int position, String name) {
+//        Toast.makeText(getApplicationContext(), "You just clicked on " + name, Toast.LENGTH_SHORT).show();
+//    }
 
     @Override
     public void onCompleted() {
@@ -113,6 +105,25 @@ public class RepoActivity extends AppCompatActivity implements SingleRepoInterfa
 
     @Override
     public Observable<List<SingleRepoResponse>> getSingleRepo() {
-        return mService.getSingleRepo("JakeWharton");
+        return mService.getSingleRepo(OverviewActivity.mCurrentUser, OverviewActivity.mCurrentRepository, OverviewActivity.mRepositoryPath);
+    }
+
+    @Override
+    public void onClick(int position, String name, String type, String download_url) {
+
+        // TODO fix the inner directory
+        switch (type) {
+            case "dir": {
+                OverviewActivity.mRepositoryPath = OverviewActivity.mRepositoryPath + "/" + name;
+                Toast.makeText(RepoActivity.this, "PATH: " + OverviewActivity.mRepositoryPath + " NAME: " + name , Toast.LENGTH_SHORT).show();
+                onResume();
+            }break;
+            case "file": {
+                Intent webViewIntent = new Intent(RepoActivity.this, RepositoryWebviewActivity.class);
+                webViewIntent.putExtra(CODE_URL, download_url);
+                startActivity(webViewIntent);
+            }
+        }
+
     }
 }

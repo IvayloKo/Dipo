@@ -81,7 +81,9 @@ public class FollowingsFragment extends Fragment implements FollowingsViewInterf
 
     @Override
     public void onClick(int position, String name) {
-        Toast.makeText(getActivity(), "You just clicked on " + name, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "You are now browsing " + name + "'s profile", Toast.LENGTH_SHORT).show();
+        OverviewActivity.mCurrentUser = name;
+        onResume();
     }
 
     @Override

@@ -53,7 +53,7 @@ public interface GithubService {
     Observable<List<FollowingsResponse>> getPublicFollowings(@Path("user") String user);
 
     @Headers({"Accept: application/vnd.github.v3+json", "Authorization: token legit"})
-    @GET("/repos/{user}/butterknife/contents")
-    Observable<List<SingleRepoResponse>> getSingleRepo(@Path("user") String user);
+    @GET("/repos/{user}/{repository}/contents{path}")
+    Observable<List<SingleRepoResponse>> getSingleRepo(@Path("user") String user, @Path("repository") String repository, @Path("path") String path);
 
 }

@@ -82,16 +82,15 @@ public class RepositoriesFragment extends Fragment implements RepoViewInterface,
         mAdapter = new RepositoriesAdapter(RepositoriesFragment.this, inflater);
         mRecyclerView.setAdapter(mAdapter);
 
-//        mLayoutManager = new LinearLayoutManager(getActivity());
-
         return rootView;
     }
 
     @Override
     public void onClick(int position, String name) {
+        OverviewActivity.mRepositoryPath = "";
         Toast.makeText(getActivity(), "You just clicked on " + name, Toast.LENGTH_SHORT).show();
+        OverviewActivity.mCurrentRepository = name;
         Intent repoIntent = new Intent(getActivity(), RepoActivity.class);
-        repoIntent.putExtra(EXTRA_MESSAGE, name);
         RepositoriesFragment.this.startActivity(repoIntent);
     }
 

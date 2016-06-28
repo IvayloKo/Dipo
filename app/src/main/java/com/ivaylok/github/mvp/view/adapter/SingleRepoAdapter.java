@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.ivaylok.github.R;
 import com.ivaylok.github.mvp.model.SingleRepoResponse;
 import com.ivaylok.github.utils.GithubClickListener;
+import com.ivaylok.github.utils.RepositoryClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +19,9 @@ public class SingleRepoAdapter extends RecyclerView.Adapter<SingleRepoAdapter.Ho
 
     private final LayoutInflater mInflater;
     private List<SingleRepoResponse> mSingleRepoList;
-    private GithubClickListener mListener;
+    private RepositoryClickListener mListener;
 
-    public SingleRepoAdapter(GithubClickListener mListener, LayoutInflater mInflater) {
+    public SingleRepoAdapter(RepositoryClickListener mListener, LayoutInflater mInflater) {
         this.mListener = mListener;
         this.mInflater = mInflater;
         mSingleRepoList = new ArrayList<>();
@@ -68,7 +69,10 @@ public class SingleRepoAdapter extends RecyclerView.Adapter<SingleRepoAdapter.Ho
 
         @Override
         public void onClick(View view) {
-            mListener.onClick(getLayoutPosition(), mSingleRepoList.get(getAdapterPosition()).getName());
+            mListener.onClick(getLayoutPosition(),
+                    mSingleRepoList.get(getAdapterPosition()).getName(),
+                    mSingleRepoList.get(getAdapterPosition()).getType(),
+                    mSingleRepoList.get(getAdapterPosition()).getDownload_url());
         }
     }
 }
