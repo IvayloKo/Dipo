@@ -17,6 +17,7 @@ import com.ivaylok.github.R;
 import com.ivaylok.github.application.GithubApplication;
 import com.ivaylok.github.mvp.model.FollowingsResponse;
 import com.ivaylok.github.mvp.presenter.FollowingsPresenter;
+import com.ivaylok.github.mvp.view.activity.OverviewActivity;
 import com.ivaylok.github.mvp.view.adapter.FollowingsAdapter;
 import com.ivaylok.github.service.FollowingsViewInterface;
 import com.ivaylok.github.service.GithubService;
@@ -112,7 +113,7 @@ public class FollowingsFragment extends Fragment implements FollowingsViewInterf
 
     @Override
     public Observable<List<FollowingsResponse>> getFollowings() {
-        return mService.getPublicFollowings();
+        return mService.getPublicFollowings(OverviewActivity.mCurrentUser);
     }
 
 

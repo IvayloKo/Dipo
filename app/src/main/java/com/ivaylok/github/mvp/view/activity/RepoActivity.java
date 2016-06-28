@@ -113,6 +113,6 @@ public class RepoActivity extends AppCompatActivity implements SingleRepoInterfa
 
     @Override
     public Observable<List<SingleRepoResponse>> getSingleRepo() {
-        return mService.getSingleRepo();
+        return mService.getSingleRepo("JakeWharton");
     }
 }

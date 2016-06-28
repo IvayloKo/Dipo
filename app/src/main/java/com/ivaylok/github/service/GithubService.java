@@ -12,6 +12,7 @@ import java.util.List;
 
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
+import retrofit2.http.Path;
 import rx.Observable;
 
 public interface GithubService {
@@ -32,27 +33,27 @@ public interface GithubService {
 //    Public -----------------
 
     @Headers({"Accept: application/vnd.github.v3+json", "Authorization: token legit"})
-    @GET("/users/JakeWharton/received_events")
-    Observable<List<NewsResponse>> getPublicNews();
+    @GET("/users/{user}/received_events")
+    Observable<List<NewsResponse>> getPublicNews(@Path("user") String user);
 
     @Headers({"Accept: application/vnd.github.v3+json", "Authorization: token legit"})
-    @GET("/users/JakeWharton/repos")
-    Observable<List<RepoResponse>> getPublicRepos();
+    @GET("/users/{user}/repos")
+    Observable<List<RepoResponse>> getPublicRepos(@Path("user") String user);
 
     @Headers({"Accept: application/vnd.github.v3+json", "Authorization: token legit"})
-    @GET("/users/JakeWharton/starred")
-    Observable<List<StarsResponse>> getPublicStars();
+    @GET("/users/{user}/starred")
+    Observable<List<StarsResponse>> getPublicStars(@Path("user") String user);
 
     @Headers({"Accept: application/vnd.github.v3+json", "Authorization: token legit"})
-    @GET("/users/JakeWharton/followers")
-    Observable<List<FollowersResponse>> getPublicFollowers();
+    @GET("/users/{user}/followers")
+    Observable<List<FollowersResponse>> getPublicFollowers(@Path("user") String user);
 
     @Headers({"Accept: application/vnd.github.v3+json", "Authorization: token legit"})
-    @GET("/users/JakeWharton/following")
-    Observable<List<FollowingsResponse>> getPublicFollowings();
+    @GET("/users/{user}/following")
+    Observable<List<FollowingsResponse>> getPublicFollowings(@Path("user") String user);
 
     @Headers({"Accept: application/vnd.github.v3+json", "Authorization: token legit"})
-    @GET("/repos/JakeWharton/butterknife/contents")
-    Observable<List<SingleRepoResponse>> getSingleRepo();
+    @GET("/repos/{user}/butterknife/contents")
+    Observable<List<SingleRepoResponse>> getSingleRepo(@Path("user") String user);
 
 }

@@ -17,6 +17,7 @@ import com.ivaylok.github.R;
 import com.ivaylok.github.application.GithubApplication;
 import com.ivaylok.github.mvp.model.StarsResponse;
 import com.ivaylok.github.mvp.presenter.StarsPresenter;
+import com.ivaylok.github.mvp.view.activity.OverviewActivity;
 import com.ivaylok.github.mvp.view.adapter.StarsAdapter;
 import com.ivaylok.github.service.GithubService;
 import com.ivaylok.github.service.StarsViewInterface;
@@ -118,6 +119,6 @@ public class StarsFragment extends Fragment implements StarsViewInterface, Githu
 
     @Override
     public Observable<List<StarsResponse>> getStars() {
-        return mService.getPublicStars();
+        return mService.getPublicStars(OverviewActivity.mCurrentUser);
     }
 }

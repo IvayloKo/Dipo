@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.ivaylok.github.R;
 import com.ivaylok.github.application.GithubApplication;
 import com.ivaylok.github.mvp.presenter.RepoPresenter;
+import com.ivaylok.github.mvp.view.activity.OverviewActivity;
 import com.ivaylok.github.mvp.view.adapter.RepositoriesAdapter;
 import com.ivaylok.github.mvp.model.RepoResponse;
 import com.ivaylok.github.service.GithubService;
@@ -123,6 +124,6 @@ public class RepositoriesFragment extends Fragment implements RepoViewInterface,
 
     @Override
     public Observable<List<RepoResponse>> getRepos() {
-        return mService.getPublicRepos();
+        return mService.getPublicRepos(OverviewActivity.mCurrentUser);
     }
 }

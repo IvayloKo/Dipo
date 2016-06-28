@@ -16,13 +16,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mvp.view.activity.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".mvp.view.activity.RepoActivity"
             android:label="@string/title_activity_repo"
@@ -33,7 +26,17 @@
         </activity>
         <activity
             android:name=".mvp.view.activity.OverviewActivity"
-            android:label="Github"/>
+            android:label="Github" />
+        <activity
+            android:name=".mvp.view.activity.SignInActivity"
+            android:label="@string/title_activity_sign_in"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

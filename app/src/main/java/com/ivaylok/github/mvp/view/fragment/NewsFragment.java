@@ -17,6 +17,7 @@ import com.ivaylok.github.R;
 import com.ivaylok.github.application.GithubApplication;
 import com.ivaylok.github.mvp.model.NewsResponse;
 import com.ivaylok.github.mvp.presenter.NewsPresenter;
+import com.ivaylok.github.mvp.view.activity.OverviewActivity;
 import com.ivaylok.github.mvp.view.adapter.NewsAdapter;
 import com.ivaylok.github.service.GithubService;
 import com.ivaylok.github.service.NewsViewInterface;
@@ -119,6 +120,6 @@ public class NewsFragment extends Fragment implements NewsViewInterface, GithubC
 
     @Override
     public Observable<List<NewsResponse>> getNews() {
-        return mService.getPublicNews();
+        return mService.getPublicNews(OverviewActivity.mCurrentUser);
     }
 }

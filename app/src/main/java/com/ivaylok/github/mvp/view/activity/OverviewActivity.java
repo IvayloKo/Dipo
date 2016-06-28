@@ -1,5 +1,6 @@
 package com.ivaylok.github.mvp.view.activity;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
@@ -7,14 +8,19 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.ivaylok.github.R;
 import com.ivaylok.github.mvp.view.adapter.ViewPagerAdapter;
+import com.ivaylok.github.utils.Constants;
 
 public class OverviewActivity extends AppCompatActivity {
 
     ViewPager pager;
     TabLayout tabLayout;
+
+    public static String mCurrentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +30,11 @@ public class OverviewActivity extends AppCompatActivity {
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
+
+        Intent intent = getIntent();
+        mCurrentUser = intent.getStringExtra(SignInActivity.STRING_PATH);
         configViewPager();
+
     }
 
     private void configViewPager() {

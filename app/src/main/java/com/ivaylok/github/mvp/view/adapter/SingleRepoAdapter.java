@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ivaylok.github.R;
@@ -35,6 +36,11 @@ public class SingleRepoAdapter extends RecyclerView.Adapter<SingleRepoAdapter.Ho
         SingleRepoResponse currRepo = mSingleRepoList.get(position);
 
         holder.mName.setText(currRepo.getName());
+        if((currRepo.getType()).equals("dir")) {
+            holder.mImage.setImageResource(R.mipmap.ic_folder_black_24dp);
+        } else {
+            holder.mImage.setImageResource(R.mipmap.ic_insert_drive_file_black_24dp);
+        }
     }
 
     @Override
@@ -49,12 +55,14 @@ public class SingleRepoAdapter extends RecyclerView.Adapter<SingleRepoAdapter.Ho
 
     public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private TextView mName;
+        private TextView mName, mType;
+        private ImageView mImage;
 
         public Holder(View itemView) {
             super(itemView);
 
             mName = (TextView) itemView.findViewById(R.id.textViewSingleRepoName);
+            mImage = (ImageView) itemView.findViewById(R.id.imageViewSingleRepo);
             itemView.setOnClickListener(this);
         }
 
