@@ -1,6 +1,7 @@
 package com.ivaylok.github.service;
 
 import com.ivaylok.github.mvp.model.NewsResponse;
+import com.ivaylok.github.mvp.model.UserResponse;
 
 import java.util.List;
 
@@ -13,6 +14,10 @@ public interface NewsViewInterface {
     void onError(String message);
 
     void onNews(List<NewsResponse> newsResponses);
+
+    void onUser(UserResponse userResponse);
+
+    Observable<UserResponse> getUser();
 
     Observable<List<NewsResponse>> getNews();
 }

@@ -1,6 +1,7 @@
 package com.ivaylok.github.mvp.presenter;
 
 import com.ivaylok.github.mvp.model.NewsResponse;
+import com.ivaylok.github.mvp.model.UserResponse;
 import com.ivaylok.github.service.NewsViewInterface;
 
 import java.util.List;

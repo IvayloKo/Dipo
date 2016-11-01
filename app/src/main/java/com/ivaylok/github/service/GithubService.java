@@ -8,6 +8,7 @@ import com.ivaylok.github.mvp.model.NewsResponse;
 import com.ivaylok.github.mvp.model.RepoResponse;
 import com.ivaylok.github.mvp.model.SingleRepoResponse;
 import com.ivaylok.github.mvp.model.StarsResponse;
+import com.ivaylok.github.mvp.model.UserResponse;
 
 import java.util.List;
 
@@ -34,6 +35,10 @@ public interface GithubService {
 
 
 //    Public -----------------
+
+    @Headers({"Accept: application/vnd.github.v3+json", "Authorization: token " + api_key})
+    @GET("/users/{user}")
+    Observable<UserResponse> getPublicUser(@Path("user") String user);
 
     @Headers({"Accept: application/vnd.github.v3+json", "Authorization: token " + api_key})
     @GET("/users/{user}/received_events")
