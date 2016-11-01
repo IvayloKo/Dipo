@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Gluth.iml" filepath="$PROJECT_DIR$/Gluth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dipo.iml" filepath="$PROJECT_DIR$/Dipo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
